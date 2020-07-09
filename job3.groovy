@@ -4,8 +4,8 @@ job ("job3"){
         upstream('job2', 'SUCCESS')
     }
 
-    step{
-        shell('''export status=$(curl -o /dev/null -sw "%{http_code}" http://192.168.99.105:31000/web.html
+    steps{
+        shell('''export status=$(curl -o /dev/null -sw "%{http_code}" http://192.168.99.105:31000/web.html)
 if [ $status==200 ]
 then 
 echo "Deployed Successfully"
@@ -23,7 +23,7 @@ fi''')
             defaultContent('Build Failed')
             contentType('text/html')
             triggers {
-                faliure{
+                failure{
                     attachBuildLog(true)
                     subject('Build Failed')
                     content('Build Failed')
