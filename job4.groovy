@@ -4,7 +4,7 @@ job ("job4"){
         upstream('job3', 'SUCCESS')
     }
 
-    step{
+    steps{
         shell('''if kubectl get deploy | grep website
 then 
 exit 0
