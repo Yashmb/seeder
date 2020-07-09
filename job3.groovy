@@ -5,7 +5,7 @@ job ("job3"){
     }
 
     step{
-        shell('''export status=$(curl -o /dev/null -sw "%{http_code}" http://192.168.99.105:31000/web.html)
+        shell('''export status=$(curl -o /dev/null -sw "%{http_code}" http://192.168.99.105:31000/web.html
 if [ $status==200 ]
 then 
 echo "Deployed Successfully"
